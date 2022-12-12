@@ -1,0 +1,3 @@
+#import { Module } into PwrApp from "wrap://ens/pwr-app.eth"
+
+type Module implements PwrApp_Module {}

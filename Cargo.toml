@@ -1,0 +1,20 @@
+[package]
+name = "readme-to-docusaurus"
+version = "0.1.0"
+description = "Copy all readme files in a repo and convert them into a new directory of docusaurus files"
+authors = ["Kris Bitney"]
+repository = "https://github.com/krisbitney/repo-readmes-to-docusaurus"
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+polywrap-wasm-rs = { version = "0.10.0-pre.5" }
+serde = { version = "1.0", features = ["derive"] }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = 's'
+lto = true
+panic = 'abort'
