@@ -1,19 +1,51 @@
 {
-  "name": "readme-to-docusaurus",
-  "description": "Copy all readme files in a repo and convert them into a new directory of docusaurus files",
-  "private": true,
-  "version": "0.1.0",
+  "name": "readme-to-doc",
+  "version": "0.0.1",
+  "description": "Copy readmes from a directory tree and convert them to docs",
+  "author": {
+    "name": "Kris Bitney",
+    "email": "kris@polywrap.io"
+  },
+  "contributors": [
+    {
+      "name": "Polywrap DAO",
+      "url": "https://polywrap.io/"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krisbitney/repo-readme-to-docusaurus"
+  },
+  "main": "build/index.js",
+  "files": [
+    "build",
+    "bin"
+  ],
+  "bin": {
+    "rtd": "bin/rtd"
+  },
   "scripts": {
-    "build": "npx polywrap build -s image",
-    "codegen": "npx polywrap codegen",
-    "deploy": "npx polywrap deploy",
-    "test": "jest --passWithNoTests --runInBand --verbose"
+    "build": "npx rimraf ./build && tsc --project tsconfig.build.json",
+    "clean": "npx rimraf ./build ./node_modules",
+    "reset": "yarn clean && yarn && yarn build",
+    "lint": "yarn eslint .",
+    "lint:fix": "yarn eslint --fix ."
   },
   "devDependencies": {
-    "@types/jest": "27.0.3",
-    "jest": "26.6.3",
-    "polywrap": "0.10.0-pre.5",
-    "ts-jest": "26.5.4",
+    "@types/rimraf": "3.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.0",
+    "rimraf": "3.0.2",
+    "ts-node": "10.7.0",
     "typescript": "4.6.4"
+  },
+  "dependencies": {
+    "commander": "^9.4.1"
   }
 }

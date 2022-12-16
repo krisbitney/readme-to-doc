@@ -1,3 +1,3 @@
-# readme-to-docusaurus
+# readme-to-doc
 
 TODO
