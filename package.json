@@ -1,6 +1,6 @@
 {
   "name": "readme-to-doc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Copy readmes from a directory tree and convert them to docs",
   "author": {
     "name": "Kris Bitney",
