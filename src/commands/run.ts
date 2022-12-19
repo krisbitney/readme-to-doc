@@ -14,7 +14,7 @@ export const run: Command = {
   setup: (program: Program) => {
     program
       .command("run")
-      .description("Copy readme files from a directory tree and write them to output folder as docusaurus docs")
+      .description("Copy readme files from a directory tree and write them to an output folder in docusaurus doc format")
       .option(`-r, --root <path>`, "root of directory tree to search", process.cwd())
       .option(`-o, --outDir <path>`, "output location", path.join(process.cwd(), "docs"))
       .option(`-i, --include <regex>`, "directories/files to include")
@@ -33,7 +33,7 @@ async function _run(options: ReadCommandOptions) {
 
   findReadmes("", root, outDir, whitelist, blacklist);
 
-  console.log(`Readme docs output to ${outDir}`);
+  console.log(`RTD complete. Docs output to: ${outDir}`);
   process.exit(0);
 }
 
@@ -66,7 +66,6 @@ function writeReadmeAsDoc(outputDir: string, readme: string): void {
   const readmePath = path.join(outputDir, "readme-doc.md");
   const readmeDoc = `---
 id: readme-doc
-title: Readme
 sidebar_position: 0
 ---
 
